@@ -54,3 +54,35 @@ const imagens = [
     }
   ];
 
+  // Referência dos botões
+  const botao_proximo = document.querySelector("#proximo");
+  const botao_anterior = document.querySelector("#anterior");
+  // Indice global
+  let global_index = 0;
+
+
+  botao_proximo.addEventListener('click', () => mudarImagem(1))
+  botao_anterior.addEventListener('click', () => mudarImagem(-1))
+
+  function mudarImagem(step) {
+
+    // Adiciona no index global
+    global_index += step;
+    
+    // Pega o total de imagens
+    let total_images = imagens.length;
+    
+    if (global_index < 0) {
+      global_index = total_images - 1;
+    }
+
+    // Pega o index da imagem atual
+    let current_index = global_index % total_images;
+
+    // Escreve as informações da imagem atual
+    let image_slide = document.querySelector("#slide")
+    image_slide.src = servidorDasImagens + "/" + imagens[current_index].arquivo;
+    image_slide.alt = imagens[current_index].descricao;
+
+  }
+
