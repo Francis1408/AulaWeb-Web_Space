@@ -14,13 +14,13 @@ function calculaForcaAtracao(e) {
 
     // Pega os valores
     // Seleciona os inputs
-    let massa_one = document.querySelector('#massa1').value;
-    let massa_two = document.querySelector('#massa2').value;
-    let distancia = document.querySelector('#distancia').value;
-    let gravidade = document.querySelector('#constante').value;
+    let massa_one = parseFloat(document.querySelector('#massa1').value  );
+    let massa_two = parseFloat(document.querySelector('#massa2').value);
+    let distancia = parseFloat(document.querySelector('#distancia').value);
+    let gravidade = parseFloat(document.querySelector('#constante').value);
 
 
-    if (!isNaN(massa_one) && isNaN(massa_two) && isNaN(distancia)) {
+    if (!isNaN(massa_one) && !isNaN(massa_two) && !isNaN(distancia)) {
 
         const forca_atracao = (gravidade * massa_one * massa_two)/ (distancia * distancia);
 
